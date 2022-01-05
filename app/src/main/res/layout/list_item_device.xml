@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_radius_white_bg"
+    android:paddingBottom="15dp">
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="15dp"
+        android:includeFontPadding="false"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:includeFontPadding="false"
+        android:text="MAC:AA:BB:CC:DD:EE:FF"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_rssi"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:drawableTop="@drawable/rssi"
+        android:drawablePadding="5dp"
+        android:gravity="center_horizontal"
+        android:text="N/A"
+        android:textColor="@color/grey_666666"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_mac"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/shape_radius_blue_bg"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="CONNECT"
+        android:textColor="@color/white_ffffff"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_battery"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_mac">
+
+        <ImageView
+            android:id="@+id/iv_battery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/battery_1" />
+
+        <TextView
+            android:id="@+id/tv_battery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N/A"
+            android:textColor="@color/black_333333"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_track_interval"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="1223123"
+        android:textColor="@color/grey_666666"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_mac"
+        app:layout_constraintLeft_toLeftOf="@id/tv_connect"
+        app:layout_constraintRight_toRightOf="@id/tv_connect" />
+
+    <TextView
+        android:id="@+id/track"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Track:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toTopOf="@id/ll_battery" />
+
+    <TextView
+        android:id="@+id/tv_track"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/track"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:id="@+id/available"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/track"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_available"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/track"
+        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tx_power"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tx Power:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/track" />
+
+    <TextView
+        android:id="@+id/tv_tx_power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tx_power"
+        app:layout_constraintLeft_toLeftOf="@id/tv_track" />
+
+    <TextView
+        android:id="@+id/rssi_1m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RSSI@1m:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tx_power"
+        app:layout_constraintLeft_toLeftOf="@id/available" />
+
+    <TextView
+        android:id="@+id/tv_rssi_1m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tx_power"
+        app:layout_constraintLeft_toLeftOf="@id/tv_available" />
+
+    <TextView
+        android:id="@+id/uuid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UUID:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tx_power" />
+
+    <TextView
+        android:id="@+id/tv_uuid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/uuid"
+        app:layout_constraintLeft_toLeftOf="@id/tv_track"
+        app:layout_constraintRight_toRightOf="@id/tv_connect" />
+
+    <TextView
+        android:id="@+id/major"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Major:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_uuid" />
+
+    <TextView
+        android:id="@+id/tv_major"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/major"
+        app:layout_constraintLeft_toLeftOf="@id/tv_track" />
+
+    <TextView
+        android:id="@+id/minor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minor:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/major"
+        app:layout_constraintLeft_toLeftOf="@id/available" />
+
+    <TextView
+        android:id="@+id/tv_minor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        app:layout_constraintBaseline_toBaselineOf="@id/major"
+        app:layout_constraintLeft_toLeftOf="@id/tv_available" />
+
+
+    <TextView
+        android:id="@+id/proximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proximity State:"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/major" />
+
+    <TextView
+        android:id="@+id/tv_proximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="N/A"
+        android:textColor="@color/black_333333"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/proximity"
+        app:layout_constraintLeft_toRightOf="@id/proximity" />
+</androidx.constraintlayout.widget.ConstraintLayout>
