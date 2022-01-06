@@ -84,6 +84,7 @@ public class ExportDataActivity extends BaseActivity {
     private ArrayList<ExportData> exportDatas;
     private boolean isSync;
     private ExportDataListAdapter adapter;
+    public String mDeviceMac;
 
 
     @Override
@@ -129,6 +130,10 @@ public class ExportDataActivity extends BaseActivity {
         if (!MokoSupport.getInstance().isBluetoothOpen()) {
             // 蓝牙未打开，开启蓝牙
             MokoSupport.getInstance().enableBluetooth();
+        } else {
+            List<OrderTask> orderTasks = new ArrayList<>();
+            orderTasks.add(OrderTaskAssembler.getMacAddress());
+            MokoSupport.getInstance().sendOrder(orderTasks.toArray(new OrderTask[]{}));
         }
     }
 
@@ -198,23 +203,13 @@ public class ExportDataActivity extends BaseActivity {
                                     rawData = MokoUtils.bytesToHexString(rawDataBytes);
                                 }
 
-                                byte[] macBytes2 = Arrays.copyOfRange(value, 4, 10);
-                                StringBuffer stringBuffer2 = new StringBuffer();
-                                for (int i = 0, l = macBytes2.length; i < l; i++) {
-                                    stringBuffer2.append(MokoUtils.byte2HexString(macBytes2[i]));
-                                    if (i < (l - 1))
-                                        stringBuffer2.append(":");
-                                }
-                                String watchMac = stringBuffer2.toString();
-
-
                                 ExportData exportData = new ExportData();
 
                                 exportData.time = time;
                                 exportData.rssi = rssi;
                                 exportData.mac = mac;
                                 exportData.rawData = rawData;
-                                exportData.watchMac = watchMac;
+                                exportData.watchMac = mDeviceMac;
                                 exportDatas.add(exportData);
                                 tvCount.setText(String.format("Count:%d", exportDatas.size()));
 
@@ -283,6 +278,19 @@ public class ExportDataActivity extends BaseActivity {
                                         int sum = saved + left;
                                         tvSum.setText(String.format("Sum:%d/%d", saved, sum));
                                         tvCount.setText("Count:N/A");
+                                    }
+                                    break;
+                                case GET_DEVICE_MAC:
+                                    if (length == 6) {
+                                        byte[] macBytes = Arrays.copyOfRange(value, 4, 10);
+                                        StringBuffer stringBuffer = new StringBuffer();
+                                        for (int i = 0, l = macBytes.length; i < l; i++) {
+                                            stringBuffer.append(MokoUtils.byte2HexString(macBytes[i]));
+                                            if (i < (l - 1))
+                                                stringBuffer.append(":");
+                                        }
+                                        mDeviceMac = stringBuffer.toString();
+                                        deviceFragment.setMacAddress(stringBuffer.toString());
                                     }
                                     break;
                             }
